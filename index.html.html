@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPP MAIS — Plano Estratégico de Campanhas 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:       #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-pale:  #F5E9C4;
+    --gold-dim:   rgba(201,168,76,0.15);
+    --dark:       #080C18;
+    --dark2:      #0E1424;
+    --dark3:      #141A2E;
+    --dark4:      #1A2038;
+    --mid:        #242B44;
+    --text:       #DDD8CC;
+    --muted:      #7A7E96;
+    --faint:      rgba(255,255,255,0.04);
+    --google:     #4A90E2;
+    --google-bg:  rgba(74,144,226,0.08);
+    --google-brd: rgba(74,144,226,0.25);
+    --meta:       #5B8DEF;
+    --meta-bg:    rgba(91,141,239,0.08);
+    --meta-brd:   rgba(91,141,239,0.25);
+    --topo:       #E07840;
+    --topo-bg:    rgba(224,120,64,0.09);
+    --topo-brd:   rgba(224,120,64,0.28);
+    --meio:       #9060C8;
+    --meio-bg:    rgba(144,96,200,0.09);
+    --meio-brd:   rgba(144,96,200,0.28);
+    --fundo:      #2EA86A;
+    --fundo-bg:   rgba(46,168,106,0.09);
+    --fundo-brd:  rgba(46,168,106,0.28);
+    --abril:      #C4505A;
+    --abril-bg:   rgba(196,80,90,0.08);
+    --abril-brd:  rgba(196,80,90,0.28);
+    --maio:       #4A94C0;
+    --maio-bg:    rgba(74,148,192,0.08);
+    --maio-brd:   rgba(74,148,192,0.28);
+    --white:      #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  /* ── GRAIN TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  /* ── GLOW BLOBS ── */
+  .blob {
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+    filter: blur(100px); opacity: 0.06;
+  }
+  .blob-1 { width: 600px; height: 600px; top: -200px; right: -100px; background: var(--gold); }
+  .blob-2 { width: 400px; height: 400px; bottom: 10%; left: -100px; background: var(--meta); }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+
+  /* ── HEADER ── */
+  header {
+    padding: 72px 0 64px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    position: relative; overflow: hidden;
+  }
+  .header-grid { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; }
+  .header-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .header-eyebrow::before, .header-eyebrow::after {
+    content: ''; display: block; height: 1px; background: var(--gold); opacity: 0.5;
+  }
+  .header-eyebrow::before { width: 32px; }
+  .header-eyebrow::after  { width: 16px; }
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-weight: 700; line-height: 1.08;
+    color: var(--white); letter-spacing: -0.01em;
+  }
+  header h1 em { font-style: italic; color: var(--gold); }
+  .header-sub { margin-top: 14px; color: var(--muted); font-size: 0.88rem; font-weight: 400; letter-spacing: 0.02em; }
+  .header-stats { text-align: right; }
+  .hstat-main {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .hstat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .hstat-sub { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+
+  /* ── NAV PILLS ── */
+  .nav-pills {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 24px 0; border-bottom: 1px solid var(--faint);
+  }
+  .nav-pill {
+    font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--muted); cursor: pointer;
+    transition: all 0.2s; text-decoration: none;
+  }
+  .nav-pill:hover, .nav-pill.active { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+  /* ── SECTION ── */
+  .section { padding: 64px 0; }
+  .section + .section { border-top: 1px solid var(--faint); }
+  .sec-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--muted);
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  }
+  .sec-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+  .sec-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+    font-weight: 700; color: var(--white);
+    letter-spacing: -0.005em; line-height: 1.15; margin-bottom: 10px;
+  }
+  .sec-desc { color: var(--muted); font-size: 0.94rem; max-width: 680px; line-height: 1.8; }
+
+  /* ── PHASE BADGE ── */
+  .phase-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 18px; border-radius: 99px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .phase-badge.abril { background: var(--abril-bg); border: 1px solid var(--abril-brd); color: var(--abril); }
+  .phase-badge.maio  { background: var(--maio-bg);  border: 1px solid var(--maio-brd);  color: var(--maio); }
+  .phase-badge.escala { background: var(--fundo-bg); border: 1px solid var(--fundo-brd); color: var(--fundo); }
+
+  /* ── BUDGET CARDS GRID ── */
+  .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  @media (max-width: 900px) { .budget-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .budget-grid { grid-template-columns: 1fr; } }
+
+  .bcard {
+    background: var(--dark3); border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 26px 22px; position: relative; overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .bcard:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.3); }
+  .bcard::after { /* top accent line */
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    border-radius: 16px 16px 0 0;
+  }
+  .bcard.google::after { background: var(--google); }
+  .bcard.meta::after   { background: var(--meta); }
+  .bcard.total::after  { background: var(--gold); }
+  .bcard.abril::after  { background: var(--abril); }
+  .bcard.maio::after   { background: var(--maio); }
+
+  .bcard-platform { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .bcard-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 2.1rem; font-weight: 700; color: var(--white); line-height: 1;
+  }
+  .bcard-amount span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+  .bcard-note { margin-top: 10px; font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+  .bcard-rows { margin-top: 16px; display: flex; flex-direction: column; gap: 7px; }
+  .bcard-row { display: flex; justify-content: space-between; font-size: 0.78rem; }
+  .bcard-row .lbl { color: var(--muted); }
+  .bcard-row .val { color: var(--text); font-weight: 600; }
+  .bcard-row .val.gold { color: var(--gold); }
+  .bcard-row .val.muted { color: var(--muted); font-weight: 400; }
+  .bcard-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0; }
+  .inactive-tag {
+    display: inline-block; margin-top: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 4px;
+    background: rgba(255,255,255,0.04); color: var(--muted);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .active-tag {
+    display: inline-block; margin-top: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 4px;
+    background: var(--fundo-bg); color: var(--fundo);
+    border: 1px solid var(--fundo-brd);
+  }
+
+  /* ── FUNNEL PILLS ── */
+  .funnel-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 32px 0; }
+  @media (max-width: 600px) { .funnel-pills { grid-template-columns: 1fr; } }
+  .fpill {
+    border-radius: 12px; padding: 18px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .fpill.topo  { background: var(--topo-bg);  border: 1px solid var(--topo-brd); }
+  .fpill.meio  { background: var(--meio-bg);  border: 1px solid var(--meio-brd); }
+  .fpill.fundo { background: var(--fundo-bg); border: 1px solid var(--fundo-brd); }
+  .fpill-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .fpill-name { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .fpill.topo  .fpill-name { color: var(--topo); }
+  .fpill.meio  .fpill-name { color: var(--meio); }
+  .fpill.fundo .fpill-name { color: var(--fundo); }
+  .fpill-role { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  /* ── PLATFORM BLOCK ── */
+  .platform-block { margin-bottom: 48px; }
+  .platform-header {
+    display: flex; align-items: center; gap: 18px;
+    padding: 22px 28px; border-radius: 14px 14px 0 0;
+    border: 1px solid transparent; border-bottom: none;
+  }
+  .platform-header.google { background: linear-gradient(90deg, rgba(74,144,226,0.12), var(--dark3)); border-color: var(--google-brd); }
+  .platform-header.meta   { background: linear-gradient(90deg, rgba(91,141,239,0.12), var(--dark3)); border-color: var(--meta-brd); }
+  .platform-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .platform-icon.google { background: rgba(74,144,226,0.15); }
+  .platform-icon.meta   { background: rgba(91,141,239,0.15); }
+  .platform-name { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); }
+  .platform-name span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--muted); font-weight: 400; display: block; margin-top: 2px; letter-spacing: 0.02em; }
+
+  /* ── STRATEGY TABLE ── */
+  .table-wrap { border-radius: 0 0 14px 14px; overflow: hidden; border: 1px solid transparent; border-top: none; }
+  .table-wrap.google { border-color: var(--google-brd); }
+  .table-wrap.meta   { border-color: var(--meta-brd); }
+
+  .strat-table { width: 100%; border-collapse: collapse; }
+  .strat-table thead tr { border-bottom: 1px solid var(--mid); }
+  .strat-table th {
+    padding: 12px 16px; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); text-align: left;
+    background: var(--dark4); border-right: 1px solid var(--faint);
+  }
+  .strat-table th:last-child { border-right: none; }
+  .strat-table td {
+    padding: 20px 16px; font-size: 0.86rem; line-height: 1.7;
+    vertical-align: top; border-right: 1px solid var(--faint);
+    background: var(--dark3); border-bottom: 1px solid var(--faint);
+  }
+  .strat-table td:last-child { border-right: none; }
+  .strat-table tbody tr:last-child td { border-bottom: none; }
+  .strat-table tbody tr:hover td { background: var(--dark4); transition: background 0.15s; }
+
+  /* row highlight for inactive fundo */
+  .strat-table tr.row-inactive td { opacity: 0.45; }
+
+  /* ── STAGE BADGE ── */
+  .sbadge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 11px; border-radius: 99px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sbadge.topo  { background: var(--topo-bg);  color: var(--topo);  border: 1px solid var(--topo-brd); }
+  .sbadge.meio  { background: var(--meio-bg);  color: var(--meio);  border: 1px solid var(--meio-brd); }
+  .sbadge.fundo { background: var(--fundo-bg); color: var(--fundo); border: 1px solid var(--fundo-brd); }
+  .sbadge.inactive { background: rgba(255,255,255,0.03); color: var(--muted); border: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── BUDGET TAG ── */
+  .btag {
+    display: inline-block;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold); font-size: 12px; font-weight: 700;
+    padding: 4px 10px; border-radius: 6px; margin-top: 6px;
+  }
+  .btag.inactive { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); color: var(--muted); font-style: italic; }
+
+  /* ── KPI & FORMAT CHIPS ── */
+  .kpis, .fmts { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+  .kpi { background: rgba(255,255,255,0.05); color: var(--muted); font-size: 10px; padding: 2px 7px; border-radius: 4px; }
+  .fmt { background: var(--dark4); border: 1px solid rgba(255,255,255,0.07); color: var(--muted); font-size: 10px; padding: 2px 7px; border-radius: 4px; }
+
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .obj-list li { display: flex; gap: 7px; align-items: flex-start; }
+  .obj-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 1px; font-size: 11px; }
+  .cell-title { font-weight: 700; color: var(--white); font-size: 0.86rem; margin-bottom: 6px; }
+
+  .dim-notice {
+    font-size: 11px; color: var(--muted); font-style: italic;
+    margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--faint);
+  }
+
+  /* ── DISTRIBUTION BARS ── */
+  .dist-block {
+    background: var(--dark2); border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 20px; padding: 36px 40px; margin-top: 40px;
+  }
+  .dist-title { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .dist-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 28px; }
+  .dist-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 700px) { .dist-cols { grid-template-columns: 1fr; } }
+  .dist-col-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .bar-group { display: flex; flex-direction: column; gap: 14px; }
+  .bar-item { display: flex; flex-direction: column; gap: 6px; }
+  .bar-meta { display: flex; justify-content: space-between; font-size: 11px; }
+  .bar-meta .nm { color: var(--text); }
+  .bar-meta .am { color: var(--gold); font-weight: 700; }
+  .bar-meta .pc { color: var(--muted); }
+  .bar-track { background: rgba(255,255,255,0.05); border-radius: 99px; height: 7px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 99px; transition: width 1s ease; }
+  .bf-topo  { background: linear-gradient(90deg, var(--topo), #F5A070); }
+  .bf-meio  { background: linear-gradient(90deg, var(--meio), #C080F0); }
+  .bf-fundo { background: linear-gradient(90deg, var(--fundo), #60D090); }
+  .bf-inactive { background: rgba(255,255,255,0.1); }
+
+  /* ── PROJECTIONS ── */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 28px; }
+  .proj-card {
+    background: var(--dark3); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 22px 20px;
+    position: relative; overflow: hidden;
+  }
+  .proj-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); opacity: 0.4; border-radius: 14px 14px 0 0;
+  }
+  .proj-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .proj-val {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1;
+  }
+  .proj-val.green { color: var(--fundo); }
+  .proj-val.gold  { color: var(--gold); }
+  .proj-val.blue  { color: var(--google); }
+  .proj-sub { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+
+  /* ── NOTE BOX ── */
+  .note {
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 12px; padding: 22px 26px; margin-top: 20px;
+  }
+  .note p { font-size: 0.87rem; color: var(--muted); line-height: 1.8; }
+  .note p + p { margin-top: 10px; }
+  .note strong { color: var(--gold); }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    background: var(--abril-bg); border: 1px solid var(--abril-brd);
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-text { font-size: 0.85rem; color: var(--text); line-height: 1.7; }
+  .alert-text strong { color: var(--abril); }
+
+  /* ── MONTH DIVIDER ── */
+  .month-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 48px 0 32px;
+  }
+  .month-divider::before, .month-divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06);
+  }
+  .month-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 99px; white-space: nowrap;
+  }
+  .month-label.abril { background: var(--abril-bg); border: 1px solid var(--abril-brd); color: var(--abril); }
+  .month-label.maio  { background: var(--maio-bg);  border: 1px solid var(--maio-brd);  color: var(--maio); }
+  .month-label.escala { background: var(--fundo-bg); border: 1px solid var(--fundo-brd); color: var(--fundo); }
+
+  /* ── COMPARISON TABLE (Apr vs May) ── */
+  .comp-table { width: 100%; border-collapse: collapse; border-radius: 14px; overflow: hidden; margin-top: 24px; }
+  .comp-table th {
+    padding: 14px 20px; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; text-align: left;
+  }
+  .comp-table th.col-label { background: var(--dark4); color: var(--muted); width: 220px; }
+  .comp-table th.col-abril { background: rgba(196,80,90,0.15); color: var(--abril); }
+  .comp-table th.col-maio  { background: rgba(74,148,192,0.15); color: var(--maio); }
+  .comp-table td {
+    padding: 14px 20px; font-size: 0.83rem; line-height: 1.55;
+    border-bottom: 1px solid var(--faint);
+  }
+  .comp-table td.col-label { background: var(--dark3); color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing: 0.5px; }
+  .comp-table td.col-abril { background: rgba(196,80,90,0.05); color: var(--text); }
+  .comp-table td.col-maio  { background: rgba(74,148,192,0.05); color: var(--text); }
+  .comp-table tbody tr:last-child td { border-bottom: none; }
+  .check { color: var(--fundo); font-weight: 700; }
+  .cross { color: var(--muted); font-style: italic; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 32px 0; text-align: center;
+    color: var(--muted); font-size: 0.78rem; letter-spacing: 0.02em;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.7s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.14s; }
+  .fade-up:nth-child(3) { animation-delay: 0.23s; }
+  .fade-up:nth-child(4) { animation-delay: 0.32s; }
+  .fade-up:nth-child(5) { animation-delay: 0.41s; }
+
+  @media (max-width: 768px) {
+    .wrap { padding: 0 20px; }
+    .header-grid { grid-template-columns: 1fr; }
+    .header-stats { text-align: left; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; }
+    .blob, body::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- ══ HEADER ══════════════════════════════════════════ -->
+<header>
+  <div class="wrap">
+    <div class="header-grid">
+      <div>
+        <div class="header-eyebrow">Proposta Estratégica 2026</div>
+        <h1>Plano de Campanhas<br><em>IPP MAIS</em></h1>
+        <p class="header-sub">Tráfego pago — Google Ads &amp; Meta Ads — Funil por fases — Abril &amp; Maio 2026</p>
+      </div>
+      <div class="header-stats">
+        <div class="hstat-main">R$ 2.000</div>
+        <div class="hstat-label">Investimento mensal</div>
+        <div class="hstat-sub">
+          R$ 1.000 Google Ads<br>
+          R$ 1.000 Meta Ads<br>
+          ippmais.com.br
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ══ NAV ══ -->
+  <nav class="nav-pills">
+    <a href="#visao" class="nav-pill active">Visão Geral</a>
+    <a href="#abril" class="nav-pill">Abril — Mês 1</a>
+    <a href="#maio" class="nav-pill">Maio — Mês 2+</a>
+    <a href="#distribuicao" class="nav-pill">Distribuição</a>
+    <a href="#projecoes" class="nav-pill">Projeções</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÃO 1 — VISÃO GERAL
+  ══════════════════════════════════════════════════ -->
+  <section class="section" id="visao">
+    <div class="sec-eyebrow">Investimento</div>
+    <h2 class="sec-title">Divisão de Verba — R$ 2.000/mês</h2>
+    <p class="sec-desc">Investimento dividido igualmente entre Google Ads e Meta Ads para fase de teste e validação. No primeiro mês (Abril) focaremos apenas em Topo e Meio de funil — construindo audiência e intenção antes de ativar conversão direta.</p>
+
+    <div class="budget-grid" style="margin-top: 32px;">
+      <div class="bcard google fade-up">
+        <div class="bcard-platform">🔵 Google Ads</div>
+        <div class="bcard-amount">R$ 1.000 <span>/ mês</span></div>
+        <div class="bcard-note">Captura de intenção de busca, YouTube e Display. Base para o remarketing do Mês 2.</div>
+        <div class="bcard-rows">
+          <div class="bcard-row"><span class="lbl">Topo — YouTube + Display</span><span class="val">R$ 350</span></div>
+          <div class="bcard-row"><span class="lbl">Meio — Search Geral</span><span class="val">R$ 400</span></div>
+          <div class="bcard-row"><span class="lbl">Search Branded (sempre ativo)</span><span class="val">R$ 250</span></div>
+          <div class="bcard-divider"></div>
+          <div class="bcard-row"><span class="lbl" style="color:var(--text);font-weight:600">Total Google</span><span class="val gold">R$ 1.000</span></div>
+        </div>
+        <div class="inactive-tag">Fundo: ativo em Maio</div>
+      </div>
+
+      <div class="bcard meta fade-up">
+        <div class="bcard-platform">🔷 Meta Ads</div>
+        <div class="bcard-amount">R$ 1.000 <span>/ mês</span></div>
+        <div class="bcard-note">Awareness, engajamento e construção de audiência para remarketing. Feed, Reels e Stories.</div>
+        <div class="bcard-rows">
+          <div class="bcard-row"><span class="lbl">Topo — Alcance + Vídeo</span><span class="val">R$ 400</span></div>
+          <div class="bcard-row"><span class="lbl">Meio — Tráfego + Engajamento</span><span class="val">R$ 400</span></div>
+          <div class="bcard-row"><span class="lbl">Branded Awareness</span><span class="val">R$ 200</span></div>
+          <div class="bcard-divider"></div>
+          <div class="bcard-row"><span class="lbl" style="color:var(--text);font-weight:600">Total Meta</span><span class="val gold">R$ 1.000</span></div>
+        </div>
+        <div class="inactive-tag">Fundo: ativo em Maio</div>
+      </div>
+
+      <div class="bcard total fade-up">
+        <div class="bcard-platform">✦ Visão Total</div>
+        <div class="bcard-amount">R$ 2.000 <span>/ mês</span></div>
+        <div class="bcard-note">Cobertura estratégica por fases. Mês 1 = construção de audiência. Mês 2+ = funil completo com conversão.</div>
+        <div class="bcard-rows">
+          <div class="bcard-row"><span class="lbl">Plano Mensal</span><span class="val muted">R$ 10/mês</span></div>
+          <div class="bcard-row"><span class="lbl">Plano Anual</span><span class="val muted">R$ 120/ano</span></div>
+          <div class="bcard-row"><span class="lbl">CPA alvo mensal</span><span class="val gold">≤ R$ 30</span></div>
+          <div class="bcard-row"><span class="lbl">CPA alvo anual</span><span class="val gold">≤ R$ 50</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÃO 2 — ABRIL (MÊS 1)
+  ══════════════════════════════════════════════════ -->
+  <section class="section" id="abril">
+    <div class="sec-eyebrow">Fase 1 — Abril 2026</div>
+    <h2 class="sec-title">Mês 1 — Topo &amp; Meio de Funil</h2>
+    <p class="sec-desc">O primeiro mês é de construção de base. Não existe fundo de funil eficiente sem audiência qualificada. Aproveitar Abril para gerar impressões, acumular públicos de remarketing e validar os criativos que performam melhor.</p>
+
+    <div class="alert" style="margin-top: 28px;">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text">
+        <strong>Fundo de Funil não será ativado em Abril.</strong> Campanhas de conversão direta e RLSA exigem volume mínimo de dados (visitantes no site, eventos de compra, públicos de remarketing) para que os algoritmos otimizem corretamente. Ativar fundo antes disso desperdiça verba. A estratégia é: construir audiência em Abril → converter em Maio.
+      </div>
+    </div>
+
+    <!-- GOOGLE ABRIL -->
+    <div class="phase-badge abril">🔵 Google Ads — Abril</div>
+
+    <div class="platform-block">
+      <div class="platform-header google">
+        <div class="platform-icon google">🔵</div>
+        <div>
+          <div class="platform-name">Google Ads — Abril
+            <span>R$ 1.000/mês · Topo + Meio + Search Branded · YouTube · Display</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap google">
+        <table class="strat-table">
+          <thead>
+            <tr>
+              <th style="width:110px">Etapa</th>
+              <th style="width:160px">Campanha</th>
+              <th>Objetivo Estratégico</th>
+              <th>Formatos & Segmentação</th>
+              <th style="width:120px">KPIs</th>
+              <th style="width:110px">Verba</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sbadge topo">🔭 Topo</span></td>
+              <td><div class="cell-title">YouTube In-Stream + Display</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Apresentar a IPP MAIS para cristãos que ainda não conhecem a plataforma</li>
+                  <li>Alcançar quem já consome conteúdo gospel e pregações no YouTube</li>
+                  <li>Construir lista de remarketing para ativar em Maio (fundo de funil)</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">YouTube In-Stream 30s</span>
+                  <span class="fmt">YouTube Bumper 6s</span>
+                  <span class="fmt">Display Responsivo</span>
+                  <span class="fmt">Segm: canais gospel</span>
+                  <span class="fmt">Tópico: religião cristã</span>
+                  <span class="fmt">Similar: @ippinheiros</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPM ≤ R$15</span>
+                  <span class="kpi">View Rate ≥ 30%</span>
+                  <span class="kpi">CTR ≥ 0,5%</span>
+                  <span class="kpi">Lista remarketing</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 350/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 35% do Google</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Meio</span></td>
+              <td><div class="cell-title">Search — KW Gerais</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Capturar buscas ativas por streaming cristão, pregação online e culto ao vivo</li>
+                  <li>Direcionar tráfego qualificado à landing page /assine-a-ipp para nutrir a decisão</li>
+                  <li>Iniciar coleta de dados de conversão para calibrar o fundo de funil em Maio</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Responsive Search Ads</span>
+                  <span class="fmt">Ext: Sitelinks</span>
+                  <span class="fmt">Ext: Callouts</span>
+                  <span class="fmt">KW: streaming cristão</span>
+                  <span class="fmt">KW: pregação online</span>
+                  <span class="fmt">KW: culto ao vivo IPP</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CTR ≥ 5%</span>
+                  <span class="kpi">CPC ≤ R$2,50</span>
+                  <span class="kpi">QS ≥ 7</span>
+                  <span class="kpi">Sessões na LP</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 400/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 40% do Google</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Branded</span></td>
+              <td><div class="cell-title">Search Branded — Sempre Ativo</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Dominar buscas por "IPP MAIS", "IPPTV", "Igreja Pinheiros streaming" desde o Dia 1</li>
+                  <li>Menor CPC de todo o portfólio — captura o público mais quente já existente</li>
+                  <li>Gera primeiras assinaturas com custo mínimo logo nas primeiras semanas</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Search Ads — Branded</span>
+                  <span class="fmt">KW: IPP MAIS</span>
+                  <span class="fmt">KW: IPPTV</span>
+                  <span class="fmt">KW: Igreja Pinheiros TV</span>
+                  <span class="fmt">Manual CPC inicial</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CTR ≥ 10%</span>
+                  <span class="kpi">CPC ≤ R$1,00</span>
+                  <span class="kpi">CVR ≥ 5%</span>
+                  <span class="kpi">Assinaturas</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 250/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 25% do Google</div>
+              </td>
+            </tr>
+            <tr class="row-inactive">
+              <td><span class="sbadge inactive">💳 Fundo</span></td>
+              <td><div class="cell-title" style="color:var(--muted)">RLSA + Performance Max</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Inativo em Abril — aguardando acúmulo de dados e audiências de remarketing</li>
+                </ul>
+                <div class="dim-notice">Será ativado em Maio após coleta de dados suficientes (mín. 100 conversões ou 1.000 visitantes qualificados)</div>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">RLSA 30/60d</span>
+                  <span class="fmt">Performance Max</span>
+                  <span class="fmt">Smart Bidding: tCPA</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi" style="opacity:0.4">CPA ≤ R$30</span>
+                  <span class="kpi" style="opacity:0.4">ROAS ≥ 3x</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag inactive">— Maio</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- META ABRIL -->
+    <div class="phase-badge abril" style="margin-top: 40px;">🔷 Meta Ads — Abril</div>
+
+    <div class="platform-block">
+      <div class="platform-header meta">
+        <div class="platform-icon meta">🔷</div>
+        <div>
+          <div class="platform-name">Meta Ads — Abril
+            <span>R$ 1.000/mês · Topo + Meio · Feed · Reels · Stories · Instagram + Facebook</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap meta">
+        <table class="strat-table">
+          <thead>
+            <tr>
+              <th style="width:110px">Etapa</th>
+              <th style="width:160px">Campanha</th>
+              <th>Objetivo Estratégico</th>
+              <th>Formatos & Segmentação</th>
+              <th style="width:120px">KPIs</th>
+              <th style="width:110px">Verba</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sbadge topo">🔭 Topo</span></td>
+              <td><div class="cell-title">Alcance + Vídeo Views</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Apresentar a IPP MAIS para a maior audiência cristã possível no Brasil</li>
+                  <li>Gerar visualizações de Reels e vídeos (bastidores, pregador convida) para criar público de remarketing qualificado</li>
+                  <li>Quem assiste 50%+ do vídeo alimenta o remarketing do Meio e Fundo em Maio</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Reels 30s (bastidores)</span>
+                  <span class="fmt">Feed estático lançamento</span>
+                  <span class="fmt">Objetivo: Alcance</span>
+                  <span class="fmt">Interesses: gospel/evangélico</span>
+                  <span class="fmt">Interesses: streaming cristão</span>
+                  <span class="fmt">Público frio — Brasil</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPM ≤ R$12</span>
+                  <span class="kpi">ThruPlay ≥ 15%</span>
+                  <span class="kpi">Freq 2–4x</span>
+                  <span class="kpi">% vid 50%+</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 400/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 40% do Meta</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Meio</span></td>
+              <td><div class="cell-title">Tráfego + Engajamento</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Engajar quem já viu a marca no Topo e direcioná-los à página de assinatura</li>
+                  <li>Testar ângulos de copy: família, missão, YouTube vs. IPP MAIS, ancoragem de preço</li>
+                  <li>Carrossel "5 razões para assinar" para aumentar o tempo de consideração da persona P2</li>
+                  <li>Começar a construir Custom Audiences para ativar no Fundo em Maio</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Carrossel 5 cards</span>
+                  <span class="fmt">Reels comparação 45s</span>
+                  <span class="fmt">Objetivo: Tráfego</span>
+                  <span class="fmt">Custom: viu 50% vídeo</span>
+                  <span class="fmt">Custom: seguid. @ippinheiros</span>
+                  <span class="fmt">Lookalike 1% (assinantes)</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CTR ≥ 1,5%</span>
+                  <span class="kpi">CPC ≤ R$1,50</span>
+                  <span class="kpi">Sessões LP</span>
+                  <span class="kpi">Engajamento</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 400/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 40% do Meta</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Branded</span></td>
+              <td><div class="cell-title">Awareness Branded</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Reforçar o nome IPP MAIS para seguidores do @ippinheiros que ainda não conhecem a plataforma</li>
+                  <li>Custo muito baixo — público já aquecido — gera as primeiras conversões orgânicas</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Feed estático</span>
+                  <span class="fmt">Stories CTA simples</span>
+                  <span class="fmt">Custom: seguidores IG</span>
+                  <span class="fmt">Custom: fanpage FB</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">Alcance únicos</span>
+                  <span class="kpi">CPM baixo</span>
+                  <span class="kpi">Clicks LP</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 200/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 20% do Meta</div>
+              </td>
+            </tr>
+            <tr class="row-inactive">
+              <td><span class="sbadge inactive">💳 Fundo</span></td>
+              <td><div class="cell-title" style="color:var(--muted)">Conversão + Remarketing</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Inativo em Abril — aguardando audiências mínimas de remarketing e Pixel calibrado</li>
+                </ul>
+                <div class="dim-notice">Será ativado em Maio com Pixel Purchase configurado, listas de visitantes e Lookalike madura</div>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Stories CTA direto</span>
+                  <span class="fmt">Reels testemunho</span>
+                  <span class="fmt">Remarketing 7/14/30d</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi" style="opacity:0.4">CPA ≤ R$30</span>
+                  <span class="kpi" style="opacity:0.4">ROAS ≥ 3x</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag inactive">— Maio</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÃO 3 — MAIO (MÊS 2+)
+  ══════════════════════════════════════════════════ -->
+  <section class="section" id="maio">
+    <div class="sec-eyebrow">Fase 2 — A partir de Maio 2026</div>
+    <h2 class="sec-title">Mês 2+ — Funil Completo com Fundo Ativo</h2>
+    <p class="sec-desc">A partir de Maio, com audiências de remarketing construídas e dados de conversão coletados, ativamos o Fundo de Funil. O investimento pode ser mantido em R$ 2.000 ou escalado conforme performance do Mês 1.</p>
+
+    <div class="note" style="margin-top: 28px; margin-bottom: 32px;">
+      <p><strong>Sugestão para Maio:</strong> Se os KPIs de Abril (CTR, CPC, CPM, sessões na LP) ficarem dentro das metas, recomendamos manter R$ 2.000 mensais porém <strong>realocar verba do Topo para o Fundo</strong> — onde a conversão acontece. Se os resultados forem superiores ao esperado, aumentar para <strong>R$ 2.500–R$ 3.000</strong> escala o retorno proporcionalmente.</p>
+    </div>
+
+    <!-- GOOGLE MAIO -->
+    <div class="phase-badge maio">🔵 Google Ads — Maio em diante</div>
+
+    <div class="platform-block">
+      <div class="platform-header google">
+        <div class="platform-icon google">🔵</div>
+        <div>
+          <div class="platform-name">Google Ads — Funil Completo
+            <span>R$ 1.000/mês · Search · YouTube · Display · RLSA · Performance Max</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap google">
+        <table class="strat-table">
+          <thead>
+            <tr>
+              <th style="width:110px">Etapa</th>
+              <th style="width:160px">Campanha</th>
+              <th>Objetivo Estratégico</th>
+              <th>Formatos & Segmentação</th>
+              <th style="width:120px">KPIs</th>
+              <th style="width:110px">Verba</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sbadge topo">🔭 Topo</span></td>
+              <td><div class="cell-title">YouTube + Display</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Manter fluxo constante de novas impressões para alimentar o remarketing</li>
+                  <li>Reduzir verba do Topo em Maio — audiência base já construída em Abril</li>
+                  <li>Continuar gerando Bumper 6s de remarketing para quem viu o In-Stream e não converteu</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">YouTube In-Stream</span>
+                  <span class="fmt">Bumper 6s Remarketing</span>
+                  <span class="fmt">Display Responsivo</span>
+                  <span class="fmt">Canais gospel</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPM ≤ R$15</span>
+                  <span class="kpi">View Rate ≥ 30%</span>
+                  <span class="kpi">CTR ≥ 0,6%</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 200/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 20% do Google</div>
+                <div style="font-size:10px;color:var(--fundo);margin-top:3px">↓ reduzido</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Meio</span></td>
+              <td><div class="cell-title">Search — KW Gerais + Branded</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Manter captura de intenção de busca com criativos otimizados a partir dos dados de Abril</li>
+                  <li>Pausar headlines e KWs com baixo QS; escalar as que tiveram CTR acima da meta</li>
+                  <li>Adicionar KWs de cauda longa validadas durante Abril</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">RSA otimizados</span>
+                  <span class="fmt">Search Branded</span>
+                  <span class="fmt">KWs ganhadores de Abril</span>
+                  <span class="fmt">Extensões atualizadas</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CTR ≥ 7%</span>
+                  <span class="kpi">CPC ≤ R$2,00</span>
+                  <span class="kpi">QS ≥ 8</span>
+                  <span class="kpi">CVR ≥ 3%</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 350/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 35% do Google</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge fundo">💳 Fundo</span></td>
+              <td><div class="cell-title">RLSA + Performance Max</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Remarketing de busca (RLSA) ativado para visitantes de 7, 30 e 60 dias — audiência construída em Abril</li>
+                  <li>Performance Max com otimização por conversão usando os dados do Pixel já coletados</li>
+                  <li>Smart Bidding: tCPA configurado com meta ≤ R$30 (mensal) e ≤ R$50 (anual)</li>
+                  <li>Priorizar criativos que destacam o plano anual — ROI positivo no mesmo mês</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">RLSA 7/30/60 dias</span>
+                  <span class="fmt">Performance Max</span>
+                  <span class="fmt">Smart Bidding: tCPA</span>
+                  <span class="fmt">Evento: Purchase checkout</span>
+                  <span class="fmt">Listas remarketing ativas</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPA ≤ R$30</span>
+                  <span class="kpi">ROAS ≥ 3x</span>
+                  <span class="kpi">CVR ≥ 4%</span>
+                  <span class="kpi">Assinaturas/mês</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 450/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 45% do Google</div>
+                <div style="font-size:10px;color:var(--fundo);margin-top:3px">↑ novo em Maio</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- META MAIO -->
+    <div class="phase-badge maio" style="margin-top:40px">🔷 Meta Ads — Maio em diante</div>
+
+    <div class="platform-block">
+      <div class="platform-header meta">
+        <div class="platform-icon meta">🔷</div>
+        <div>
+          <div class="platform-name">Meta Ads — Funil Completo
+            <span>R$ 1.000/mês · Feed · Reels · Stories · Conversão · Remarketing Dinâmico</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap meta">
+        <table class="strat-table">
+          <thead>
+            <tr>
+              <th style="width:110px">Etapa</th>
+              <th style="width:160px">Campanha</th>
+              <th>Objetivo Estratégico</th>
+              <th>Formatos & Segmentação</th>
+              <th style="width:120px">KPIs</th>
+              <th style="width:110px">Verba</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="sbadge topo">🔭 Topo</span></td>
+              <td><div class="cell-title">Alcance + Vídeo</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Manter fluxo de novas audiências para o funil — evitar saturação dos públicos de Abril</li>
+                  <li>Rodar criativos vencedores de Abril (maior ThruPlay e menor CPM) com verba reduzida</li>
+                  <li>Testar novos ângulos criativos: testemunho real, pregador exclusivo</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Criativos ganhadores Abril</span>
+                  <span class="fmt">Reels novos (testemunho)</span>
+                  <span class="fmt">Objetivo: Alcance/Vídeo</span>
+                  <span class="fmt">Novos públicos segmentados</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPM ≤ R$12</span>
+                  <span class="kpi">ThruPlay ≥ 18%</span>
+                  <span class="kpi">Freq máx 4x</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 200/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 20% do Meta</div>
+                <div style="font-size:10px;color:var(--fundo);margin-top:3px">↓ reduzido</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge meio">🎯 Meio</span></td>
+              <td><div class="cell-title">Tráfego + Consideração</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Escalar os anúncios com maior CTR e menor CPC validados em Abril</li>
+                  <li>Ativar Lookalike 1% baseado nos assinantes já convertidos no Mês 1</li>
+                  <li>Carrossel atualizado com novos benefícios descobertos nos testes de Abril</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Melhores anúncios de Abril</span>
+                  <span class="fmt">Lookalike 1% assinantes</span>
+                  <span class="fmt">Custom: viu vídeo Abril</span>
+                  <span class="fmt">Objetivo: Tráfego</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CTR ≥ 2%</span>
+                  <span class="kpi">CPC ≤ R$1,20</span>
+                  <span class="kpi">Sessões LP ↑</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 300/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 30% do Meta</div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="sbadge fundo">💳 Fundo</span></td>
+              <td><div class="cell-title">Conversão + Remarketing</div></td>
+              <td>
+                <ul class="obj-list">
+                  <li>Converter visitantes de Abril com remarketing segmentado: 7, 14 e 30 dias</li>
+                  <li>Depoimento real de assinante (coletado em Abril) como prova social para quebrar objeção final</li>
+                  <li>Destacar plano anual: R$120 = 2 meses grátis como âncora de valor nos criativos</li>
+                  <li>Otimização por evento Purchase — Pixel já calibrado com dados reais do Mês 1</li>
+                </ul>
+              </td>
+              <td>
+                <div class="fmts">
+                  <span class="fmt">Stories CTA 15s</span>
+                  <span class="fmt">Reels testemunho 20s</span>
+                  <span class="fmt">Feed oferta plano anual</span>
+                  <span class="fmt">Objetivo: Conversões</span>
+                  <span class="fmt">Remarketing 7/14/30d</span>
+                  <span class="fmt">Evento: Purchase calibrado</span>
+                </div>
+              </td>
+              <td>
+                <div class="kpis">
+                  <span class="kpi">CPA ≤ R$30</span>
+                  <span class="kpi">ROAS ≥ 3x</span>
+                  <span class="kpi">CVR ≥ 3%</span>
+                  <span class="kpi">Assinaturas</span>
+                </div>
+              </td>
+              <td>
+                <div class="btag">R$ 500/mês</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:5px">≈ 50% do Meta</div>
+                <div style="font-size:10px;color:var(--fundo);margin-top:3px">↑ novo em Maio</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÃO 4 — DISTRIBUIÇÃO VISUAL
+  ══════════════════════════════════════════════════ -->
+  <section class="section" id="distribuicao">
+    <div class="sec-eyebrow">Distribuição</div>
+    <h2 class="sec-title">Visualização da Verba por Fase</h2>
+    <p class="sec-desc">Como a verba de R$ 2.000 mensais se distribui em cada etapa — e como essa distribuição muda do Mês 1 (Abril) para o Mês 2+ (Maio).</p>
+
+    <div class="dist-block">
+      <div class="month-divider">
+        <div class="month-label abril">Abril — Mês 1 — R$ 2.000</div>
+      </div>
+      <div class="dist-cols">
+        <div>
+          <div class="dist-col-label">🔵 Google Ads — R$ 1.000</div>
+          <div class="bar-group">
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🔭 Topo — YouTube + Display</span>
+                <span><span class="am">R$ 350</span>&nbsp;<span class="pc">35%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-topo" style="width:35%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🎯 Meio — Search + Branded</span>
+                <span><span class="am">R$ 650</span>&nbsp;<span class="pc">65%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-meio" style="width:65%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">💳 Fundo — Inativo</span>
+                <span><span class="am" style="color:var(--muted)">—</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-inactive" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="dist-col-label">🔷 Meta Ads — R$ 1.000</div>
+          <div class="bar-group">
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🔭 Topo — Alcance + Vídeo</span>
+                <span><span class="am">R$ 400</span>&nbsp;<span class="pc">40%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-topo" style="width:40%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🎯 Meio — Tráfego + Branded</span>
+                <span><span class="am">R$ 600</span>&nbsp;<span class="pc">60%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-meio" style="width:60%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">💳 Fundo — Inativo</span>
+                <span><span class="am" style="color:var(--muted)">—</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-inactive" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-divider" style="margin-top: 40px;">
+        <div class="month-label maio">Maio — Mês 2+ — R$ 2.000</div>
+      </div>
+      <div class="dist-cols">
+        <div>
+          <div class="dist-col-label">🔵 Google Ads — R$ 1.000</div>
+          <div class="bar-group">
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🔭 Topo — YouTube + Display</span>
+                <span><span class="am">R$ 200</span>&nbsp;<span class="pc">20%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-topo" style="width:20%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🎯 Meio — Search + Branded</span>
+                <span><span class="am">R$ 350</span>&nbsp;<span class="pc">35%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-meio" style="width:35%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">💳 Fundo — RLSA + P.Max</span>
+                <span><span class="am">R$ 450</span>&nbsp;<span class="pc">45%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-fundo" style="width:45%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="dist-col-label">🔷 Meta Ads — R$ 1.000</div>
+          <div class="bar-group">
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🔭 Topo — Alcance + Vídeo</span>
+                <span><span class="am">R$ 200</span>&nbsp;<span class="pc">20%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-topo" style="width:20%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">🎯 Meio — Tráfego + Lookalike</span>
+                <span><span class="am">R$ 300</span>&nbsp;<span class="pc">30%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-meio" style="width:30%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-meta">
+                <span class="nm">💳 Fundo — Conversão + Remarketing</span>
+                <span><span class="am">R$ 500</span>&nbsp;<span class="pc">50%</span></span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bf-fundo" style="width:50%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div style="margin-top: 40px;">
+      <div class="sec-eyebrow" style="margin-bottom:16px">Abril vs Maio</div>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="col-label">Critério</th>
+            <th class="col-abril">📅 Abril — Mês 1</th>
+            <th class="col-maio">📅 Maio — Mês 2+</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-label">Etapas ativas</td>
+            <td class="col-abril">Topo + Meio + Branded</td>
+            <td class="col-maio">Topo + Meio + <strong style="color:var(--fundo)">Fundo (NOVO)</strong></td>
+          </tr>
+          <tr>
+            <td class="col-label">Fundo de funil</td>
+            <td class="col-abril"><span class="cross">Inativo — construindo audiência</span></td>
+            <td class="col-maio"><span class="check">✓ Ativo — RLSA + P.Max + Remarketing</span></td>
+          </tr>
+          <tr>
+            <td class="col-label">Objetivo principal</td>
+            <td class="col-abril">Gerar impressões · Alimentar remarketing · Validar criativos</td>
+            <td class="col-maio">Converter assinantes · Maximizar ROAS · Escalar ganhadores</td>
+          </tr>
+          <tr>
+            <td class="col-label">Pixel / Tag situação</td>
+            <td class="col-abril">Instalação e calibração — coleta de dados</td>
+            <td class="col-maio">Calibrado com dados reais — Smart Bidding otimizado</td>
+          </tr>
+          <tr>
+            <td class="col-label">Lookalike / Públicos</td>
+            <td class="col-abril">Construindo — cold audiences + seguidores</td>
+            <td class="col-maio">Maturos — Lookalike 1% de assinantes reais</td>
+          </tr>
+          <tr>
+            <td class="col-label">Alocação Google</td>
+            <td class="col-abril">35% Topo · 65% Meio+Branded</td>
+            <td class="col-maio">20% Topo · 35% Meio · <strong style="color:var(--fundo)">45% Fundo</strong></td>
+          </tr>
+          <tr>
+            <td class="col-label">Alocação Meta</td>
+            <td class="col-abril">40% Topo · 60% Meio+Branded</td>
+            <td class="col-maio">20% Topo · 30% Meio · <strong style="color:var(--fundo)">50% Fundo</strong></td>
+          </tr>
+          <tr>
+            <td class="col-label">Assinaturas estimadas</td>
+            <td class="col-abril">15–35 (fase de aprendizado)</td>
+            <td class="col-maio">50–100+ (funil completo ativo)</td>
+          </tr>
+          <tr>
+            <td class="col-label">CPA esperado</td>
+            <td class="col-abril">R$ 40–60 (aprendizado)</td>
+            <td class="col-maio">R$ 25–40 (otimizado)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÃO 5 — PROJEÇÕES
+  ══════════════════════════════════════════════════ -->
+  <section class="section" id="projecoes">
+    <div class="sec-eyebrow">Projeções</div>
+    <h2 class="sec-title">Metas e Projeções de Resultado</h2>
+    <p class="sec-desc">Estimativas conservadoras para Abril e Maio, baseadas em benchmarks de plataformas de assinatura digital no Brasil com verba similar. Os números de Maio dependem diretamente da execução em Abril.</p>
+
+    <div class="month-divider" style="margin-top: 28px;">
+      <div class="month-label abril">Abril — Mês 1</div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-label">Assinaturas esperadas</div>
+        <div class="proj-val">15–35</div>
+        <div class="proj-sub">Fase de aprendizado. Fundo inativo. Conversões virão principalmente do Search Branded e remarketing orgânico.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">CPA estimado — Abril</div>
+        <div class="proj-val gold">R$ 40–60</div>
+        <div class="proj-sub">Mais alto que o ideal por ausência do fundo. Normal na fase de calibração dos algoritmos.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">Audiência de remarketing</div>
+        <div class="proj-val blue">500–1.500</div>
+        <div class="proj-sub">Visitantes qualificados acumulados no site para ativar o fundo em Maio. Meta mínima: 500 visitantes.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">Criativos testados</div>
+        <div class="proj-val">8–12</div>
+        <div class="proj-sub">A/B em feed, reels e search. Os ganhadores serão escalados em Maio com o fundo ativo.</div>
+      </div>
+    </div>
+
+    <div class="month-divider" style="margin-top: 40px;">
+      <div class="month-label maio">Maio — Mês 2+</div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-label">Assinaturas esperadas</div>
+        <div class="proj-val green">50–100</div>
+        <div class="proj-sub">Funil completo ativo. Fundo com remarketing maduro e criativos ganhadores de Abril escalados.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">CPA alvo — Maio</div>
+        <div class="proj-val gold">≤ R$ 30</div>
+        <div class="proj-sub">Plano mensal. Smart Bidding calibrado com dados reais. Payback em 3 meses.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">CPA alvo — Plano Anual</div>
+        <div class="proj-val gold">≤ R$ 50</div>
+        <div class="proj-sub">Plano anual R$120. ROI positivo no mesmo mês de conversão. Prioridade dos criativos.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">ROAS alvo — Maio</div>
+        <div class="proj-val green">≥ 2–3x</div>
+        <div class="proj-sub">Receita gerada / verba investida. Meta conservadora com funil completo rodando pela primeira vez.</div>
+      </div>
+    </div>
+
+    <div class="month-divider" style="margin-top: 40px;">
+      <div class="month-label escala">Mês 3+ — Escala</div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-label">Assinaturas — Mês 3</div>
+        <div class="proj-val green">100–200</div>
+        <div class="proj-sub">Se R$2.000 mantidos. Escalar para R$2.500–R$3.000 pode dobrar esses números com ROAS estável.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">CPA — Mês 3</div>
+        <div class="proj-val gold">≤ R$ 25</div>
+        <div class="proj-sub">Lookalike madura, RLSA otimizado, Performance Max calibrado. Queda natural no custo por conversão.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">ROAS — Mês 3</div>
+        <div class="proj-val green">≥ 3–4x</div>
+        <div class="proj-sub">Meta conservadora. Possível superar com mix maior de planos anuais nos criativos.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-label">Recomendação</div>
+        <div class="proj-val" style="font-size:1.2rem; color:var(--gold)">R$ 3.000</div>
+        <div class="proj-sub">Se Maio validar os KPIs, aumentar para R$3.000/mês a partir do Mês 3 é o próximo passo natural.</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top: 32px;">
+      <p><strong>Por que priorizar o plano anual:</strong> Com plano anual (R$120) e CPA de R$50, o ROI é positivo no mesmo mês da conversão — diferente do plano mensal (R$10) que exige 3+ meses de retenção para cobrir o custo de aquisição. Todos os criativos de Fundo de Funil devem enfatizar: <strong>"Plano Anual — 2 meses grátis"</strong>.</p>
+      <p><strong>Estratégia de upsell:</strong> Assinantes mensais captados em Abril e Maio devem receber fluxo de e-mail/WhatsApp nos primeiros 30 dias incentivando a migração para o plano anual. Esse movimento melhora o LTV médio e o ROAS real das campanhas retroativamente.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <strong>IPP MAIS</strong> — Plano Estratégico de Campanhas 2026 &nbsp;·&nbsp; Google Ads + Meta Ads &nbsp;·&nbsp; Abril &amp; Maio &nbsp;·&nbsp; ippmais.com.br
+  </div>
+</footer>
+
+<script>
+  // Animate bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach(b => {
+          const w = b.style.width;
+          b.style.width = '0%';
+          requestAnimationFrame(() => { b.style.width = w; });
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.dist-block').forEach(el => observer.observe(el));
+
+  // Nav pills active state
+  document.querySelectorAll('.nav-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
